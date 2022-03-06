@@ -13,10 +13,6 @@
 # limitations under the License.
 
 
-locals {
-  env = "dev"
-}
-
 module "vpc" {
   source  = "../../modules/vpc"
   project = "${var.project}"

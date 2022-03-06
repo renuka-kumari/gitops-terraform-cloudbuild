@@ -1,4 +1,4 @@
-# Copyright 2019 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,4 +13,17 @@
 # limitations under the License.
 
 
-variable "project" {}
+variable "project" {
+  description = "Project ID to create resources in that project"
+  type        = string
+}
+
+variable "terraform_service_account" {
+  description = "Service account email of the account to impersonate to run Terraform."
+  type        = string
+}
+
+variable "environment" {
+  description = "Environment Name"
+  type        = string
+}
