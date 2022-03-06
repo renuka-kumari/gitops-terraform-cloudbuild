@@ -26,7 +26,7 @@ steps:
       echo "***********************"
 
 - id: 'setup'
-  name: 'hashicorp/terraform:1.0.0'
+  name: $_DEFAULT_REGION-docker.pkg.dev/$PROJECT_ID/$_GAR_REPOSITORY/terraform
   entrypoint: /bin/bash
   args:
   - -c
