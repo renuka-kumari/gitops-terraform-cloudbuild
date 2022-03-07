@@ -34,6 +34,7 @@ steps:
     tf_sa_email=${_TF_SA_EMAIL}
     if [[ -n ${tf_sa_email} ]]; then
       echo "Setting up gcloud for impersonation"
+      echo "Service Key:  ${GCLOUD_SERVICE_KEY}"
       gcloud auth list
       gcloud config set auth/impersonate_service_account $tf_sa_email
     fi
