@@ -26,18 +26,13 @@ steps:
       echo "***********************"
 
 - id: 'setup'
-  name: $_DEFAULT_REGION-docker.pkg.dev/$PROJECT_ID/$_GAR_REPOSITORY/terraform
+  name: gcr.io/google.com/cloudsdktool/cloud-sdk:latest
   entrypoint: /bin/bash
   args:
   - -c
   - |
-    tf_sa_email=${_TF_SA_EMAIL}
-    if [[ -n ${tf_sa_email} ]]; then
-      echo "Setting up gcloud for impersonation"
-      echo "Service Key:  ${GCLOUD_SERVICE_KEY}"
       gcloud auth list
-      gcloud config set auth/impersonate_service_account $tf_sa_email
-    fi
+      gcloud config set auth/impersonate_service_account ${_TF_SA_EMAIL}
 
 - id: 'tf init'
   name: 'hashicorp/terraform:1.0.0'
