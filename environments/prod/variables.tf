@@ -27,3 +27,8 @@ variable "environment" {
   description = "Environment Name"
   type        = string
 }
+
+variable "vpc_name" {
+  description = "VPC Name"
+  type        = string
+}
